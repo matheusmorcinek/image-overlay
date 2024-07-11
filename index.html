@@ -34,12 +34,13 @@
       }
 
       .overlay-png {
-        background: url("overlaytest copy.png") repeat;
+        background: url("gradient-overlay.png") fixed;
         pointer-events: none; 
       }
     </style>
   </head>
   <body>
+    <h1>Egypt</h1>
     <h1>Divs Overlay</h1>
     <div class="image-container">
       <img src="egypt.png" alt="Sample Image" class="image" />
@@ -51,6 +52,21 @@
     <h1>PNG Overlay</h1>
     <div class="image-container">
       <img src="egypt.png" alt="Sample Image" class="image" />
+      <div class="overlay overlay-png"></div>
+    </div>
+    <br/>
+    <h1>Rio</h1>
+    <h1>Divs Overlay</h1>
+    <div class="image-container">
+      <img src="rio.png" alt="Sample Image" class="image" />
+      <div class="overlay linear-top"></div>
+      <div class="overlay linear-bottom"></div>
+      <div class="overlay radial"></div>
+    </div>
+
+    <h1>PNG Overlay</h1>
+    <div class="image-container">
+      <img src="rio.png" alt="Sample Image" class="image" />
       <div class="overlay overlay-png"></div>
     </div>
   </body>
