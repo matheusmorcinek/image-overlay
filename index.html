@@ -7,10 +7,16 @@
       .image-container {
         position: relative;
         display: inline-block;
+        width: 320px;
+        height: 54px;
+        overflow: hidden; 
       }
 
       .image {
         display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
       }
 
       .overlay {
@@ -34,8 +40,9 @@
       }
 
       .overlay-png {
-        background: url("gradient-overlay.png") fixed;
-        pointer-events: none; 
+        background: url("gradient-overlay.png") no-repeat center center;
+        background-size: cover; 
+        pointer-events: none;
       }
     </style>
   </head>
@@ -54,7 +61,7 @@
       <img src="egypt.png" alt="Sample Image" class="image" />
       <div class="overlay overlay-png"></div>
     </div>
-    <br/>
+    <br />
     <h1>Rio</h1>
     <h1>Divs Overlay</h1>
     <div class="image-container">
