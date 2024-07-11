@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .image-container {
+        position: relative;
+        display: inline-block;
+      }
+
+      .image {
+        display: block;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .overlay.linear-top {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+      }
+
+      .overlay.linear-bottom {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+      }
+
+      .overlay.radial {
+        background: radial-gradient(circle, rgba(0, 0, 0, 0.5), transparent);
+      }
+
+      .overlay-png {
+        background: url("overlaytest copy.png") repeat;
+        pointer-events: none; 
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Divs Overlay</h1>
+    <div class="image-container">
+      <img src="egypt.png" alt="Sample Image" class="image" />
+      <div class="overlay linear-top"></div>
+      <div class="overlay linear-bottom"></div>
+      <div class="overlay radial"></div>
+    </div>
+
+    <h1>PNG Overlay</h1>
+    <div class="image-container">
+      <img src="egypt.png" alt="Sample Image" class="image" />
+      <div class="overlay overlay-png"></div>
+    </div>
+  </body>
+</html>
