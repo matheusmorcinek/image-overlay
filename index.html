@@ -9,14 +9,14 @@
         display: inline-block;
         width: 320px;
         height: 54px;
-        overflow: hidden; 
+        overflow: hidden;
       }
 
       .image {
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: cover; 
+        object-fit: cover;
       }
 
       .overlay {
@@ -41,7 +41,7 @@
 
       .overlay-png {
         background: url("gradient-overlay.png") no-repeat center center;
-        background-size: cover; 
+        background-size: cover;
         pointer-events: none;
       }
     </style>
@@ -76,5 +76,50 @@
       <img src="rio.png" alt="Sample Image" class="image" />
       <div class="overlay overlay-png"></div>
     </div>
+
+    <h1>PNG Overlay - BLEND TEST</h1>
+    <br/>
+    <div class="image-container">
+      <img src="rio.png" alt="Sample Image" class="image" />
+      <div class="overlaytest overlay overlay-png"></div>
+    </div>
+
+    <div class="image-container">
+      <img src="egypt.png" alt="Sample Image" class="image" />
+      <div class="overlaytest overlay overlay-png"></div>
+    </div>
+
+    <h2>Change Blend Mode</h2>
+    <label for="blend-mode">Select Blend Mode:</label>
+    <select id="blend-mode">
+      <option value="normal">Normal</option>
+      <option value="multiply">Multiply</option>
+      <option value="screen">Screen</option>
+      <option value="overlay">Overlay</option>
+      <option value="darken">Darken</option>
+      <option value="lighten">Lighten</option>
+      <option value="color-dodge">Color Dodge</option>
+      <option value="color-burn">Color Burn</option>
+      <option value="hard-light">Hard Light</option>
+      <option value="soft-light">Soft Light</option>
+      <option value="difference">Difference</option>
+      <option value="exclusion">Exclusion</option>
+      <option value="hue">Hue</option>
+      <option value="saturation">Saturation</option>
+      <option value="color">Color</option>
+      <option value="luminosity">Luminosity</option>
+    </select>
+
+    <script>
+      document
+        .getElementById("blend-mode")
+        .addEventListener("change", function () {
+          const selectedBlendMode = this.value;
+          const overlays = document.querySelectorAll(".overlaytest");
+          overlays.forEach((overlay) => {
+            overlay.style.mixBlendMode = selectedBlendMode;
+          });
+        });
+    </script>
   </body>
 </html>
