@@ -9,7 +9,7 @@
         display: inline-block;
         width: 320px;
         height: 54px;
-        overflow: hidden;
+        /* overflow: hidden; */
       }
 
       .image {
@@ -19,12 +19,31 @@
         object-fit: cover;
       }
 
+      .filter {
+        opacity: 0.5; /* 50% alpha */
+        mix-blend-mode: multiply; /* Blend mode */
+      }
+
+      .absolute {
+        position: absolute;
+      }
+
       .overlay {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+      }
+
+      .overlayOne {
+        z-index: 1;
+      }
+      .overlayTwo {
+        z-index: 2;
+      }
+      .overlayThree {
+        z-index: 3;
       }
 
       .overlay.linear-top {
@@ -77,19 +96,37 @@
       <div class="overlay overlay-png"></div>
     </div>
 
-    <h1>PNG Overlay - BLEND TEST</h1>
-    <br/>
+    <h1>BLEND TEST</h1>
+    <br />
     <div class="image-container">
-      <img src="rio.png" alt="Sample Image" class="image" />
-      <div class="overlaytest overlay overlay-png"></div>
+      <img src="image (1).png" alt="Sample Image" class="image" />
     </div>
 
+    <h2>original</h2>
     <div class="image-container">
-      <img src="egypt.png" alt="Sample Image" class="image" />
-      <div class="overlaytest overlay overlay-png"></div>
+      <img
+        src="top-destinations-anaheim 2.jpg"
+        alt="Sample Image"
+        class="image"
+      />
     </div>
 
-    <h2>Change Blend Mode</h2>
+    <h2>with filter</h2>
+    <div class="image-container">
+      <img
+        src="top-destinations-anaheim 2.jpg"
+        alt="Sample Image"
+        class="image overlayTwo"
+      />
+      <img
+        src="top-destinations-anaheim 2.jpg"
+        alt="Sample Image filter"
+        class="image filter overlay overlayOne"
+      />
+      <div class="overlay overlay-png overlayTwo"></div>
+    </div>
+
+    <!-- <h2>TEST</h2>
     <label for="blend-mode">Select Blend Mode:</label>
     <select id="blend-mode">
       <option value="normal">Normal</option>
@@ -108,18 +145,18 @@
       <option value="saturation">Saturation</option>
       <option value="color">Color</option>
       <option value="luminosity">Luminosity</option>
-    </select>
+    </select> -->
 
     <script>
-      document
-        .getElementById("blend-mode")
-        .addEventListener("change", function () {
-          const selectedBlendMode = this.value;
-          const overlays = document.querySelectorAll(".overlaytest");
-          overlays.forEach((overlay) => {
-            overlay.style.mixBlendMode = selectedBlendMode;
-          });
-        });
+      // document
+      //   .getElementById("blend-mode")
+      //   .addEventListener("change", function () {
+      //     const selectedBlendMode = this.value;
+      //     const overlays = document.querySelectorAll(".overlaytest");
+      //     overlays.forEach((overlay) => {
+      //       overlay.style.mixBlendMode = selectedBlendMode;
+      //     });
+      //   });
     </script>
   </body>
 </html>
