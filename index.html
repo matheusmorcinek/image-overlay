@@ -107,6 +107,7 @@
     <h2>original</h2>
     <div class="image-container">
       <img
+        id="imageOriginal2"
         src="top-destinations-anaheim 2.jpg"
         alt="Sample Image"
         class="image"
@@ -116,7 +117,7 @@
     <h2>with filter</h2>
     <div class="image-container">
       <img
-        id="imageOriginal"
+        id="imageOriginal1"
         src="top-destinations-anaheim 2.jpg"
         alt="Sample Image"
         class="image"
@@ -171,15 +172,6 @@
         });
 
       document
-        .getElementById("toggleOverlayThree")
-        .addEventListener("change", function () {
-          const overlayThree = document.querySelectorAll(".overlayThree");
-          overlayThree.forEach((overlay) => {
-            overlay.style.display = this.checked ? "block" : "none";
-          });
-        });
-
-      document
         .getElementById("mainImageUpload")
         .addEventListener("change", function (event) {
           const file = event.target.files[0];
@@ -187,7 +179,8 @@
             const reader = new FileReader();
             reader.onload = function (e) {
               const imageSrc = e.target.result;
-              document.getElementById("imageOriginal").src = imageSrc;
+              document.getElementById("imageOriginal1").src = imageSrc;
+              document.getElementById("imageOriginal2").src = imageSrc;
               document.getElementById("imageFilter").src = imageSrc;
             };
             reader.readAsDataURL(file);
