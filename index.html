@@ -39,9 +39,11 @@
       .overlayOne {
         z-index: 1;
       }
+
       .overlayTwo {
         z-index: 2;
       }
+
       .overlayThree {
         z-index: 3;
       }
@@ -66,7 +68,7 @@
     </style>
   </head>
   <body>
-    <h1>Egypt</h1>
+    <!-- <h1>Egypt</h1>
     <h1>Divs Overlay</h1>
     <div class="image-container">
       <img src="egypt.png" alt="Sample Image" class="image" />
@@ -94,7 +96,7 @@
     <div class="image-container">
       <img src="rio.png" alt="Sample Image" class="image" />
       <div class="overlay overlay-png"></div>
-    </div>
+    </div> -->
 
     <h1>BLEND TEST</h1>
     <br />
@@ -114,49 +116,57 @@
     <h2>with filter</h2>
     <div class="image-container">
       <img
+        id="imageOriginal"
         src="top-destinations-anaheim 2.jpg"
         alt="Sample Image"
-        class="image overlayTwo"
+        class="image"
       />
       <img
+        id="imageFilter"
         src="top-destinations-anaheim 2.jpg"
         alt="Sample Image filter"
         class="image filter overlay overlayOne"
       />
-      <div class="overlay overlay-png overlayTwo"></div>
+      <div id="overlayPNG" class="overlay overlay-png overlayTwo"></div>
     </div>
 
-    <!-- <h2>TEST</h2>
-    <label for="blend-mode">Select Blend Mode:</label>
-    <select id="blend-mode">
-      <option value="normal">Normal</option>
-      <option value="multiply">Multiply</option>
-      <option value="screen">Screen</option>
-      <option value="overlay">Overlay</option>
-      <option value="darken">Darken</option>
-      <option value="lighten">Lighten</option>
-      <option value="color-dodge">Color Dodge</option>
-      <option value="color-burn">Color Burn</option>
-      <option value="hard-light">Hard Light</option>
-      <option value="soft-light">Soft Light</option>
-      <option value="difference">Difference</option>
-      <option value="exclusion">Exclusion</option>
-      <option value="hue">Hue</option>
-      <option value="saturation">Saturation</option>
-      <option value="color">Color</option>
-      <option value="luminosity">Luminosity</option>
-    </select> -->
+    <h2>Toggle Overlays</h2>
+    <label
+      ><input type="checkbox" id="toggleOverlayOne" checked /> Overlay
+      One</label
+    >
+    <label
+      ><input type="checkbox" id="toggleOverlayTwo" checked /> Overlay
+      Two</label
+    >
 
     <script>
-      // document
-      //   .getElementById("blend-mode")
-      //   .addEventListener("change", function () {
-      //     const selectedBlendMode = this.value;
-      //     const overlays = document.querySelectorAll(".overlaytest");
-      //     overlays.forEach((overlay) => {
-      //       overlay.style.mixBlendMode = selectedBlendMode;
-      //     });
-      //   });
+      document
+        .getElementById("toggleOverlayOne")
+        .addEventListener("change", function () {
+          const overlayOne = document.querySelectorAll(".overlayOne");
+          overlayOne.forEach((overlay) => {
+            overlay.style.display = this.checked ? "block" : "none";
+          });
+        });
+
+      document
+        .getElementById("toggleOverlayTwo")
+        .addEventListener("change", function () {
+          const overlayTwo = document.querySelectorAll(".overlayTwo");
+          overlayTwo.forEach((overlay) => {
+            overlay.style.display = this.checked ? "block" : "none";
+          });
+        });
+
+      document
+        .getElementById("toggleOverlayThree")
+        .addEventListener("change", function () {
+          const overlayThree = document.querySelectorAll(".overlayThree");
+          overlayThree.forEach((overlay) => {
+            overlay.style.display = this.checked ? "block" : "none";
+          });
+        });
     </script>
   </body>
 </html>
