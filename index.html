@@ -140,6 +140,17 @@
       Two</label
     >
 
+    <h2>Upload Image</h2>
+    <label
+      >Change Main Images:
+      <input type="file" id="mainImageUpload" accept="image/*" />
+    </label>
+    <br />
+    <label
+      >Change Overlay Image:
+      <input type="file" id="overlayImageUpload" accept="image/*" />
+    </label>
+
     <script>
       document
         .getElementById("toggleOverlayOne")
@@ -166,6 +177,37 @@
           overlayThree.forEach((overlay) => {
             overlay.style.display = this.checked ? "block" : "none";
           });
+        });
+
+      document
+        .getElementById("mainImageUpload")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const imageSrc = e.target.result;
+              document.getElementById("imageOriginal").src = imageSrc;
+              document.getElementById("imageFilter").src = imageSrc;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+
+      document
+        .getElementById("overlayImageUpload")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const imageSrc = e.target.result;
+              document.getElementById(
+                "overlayPNG"
+              ).style.backgroundImage = `url(${imageSrc})`;
+            };
+            reader.readAsDataURL(file);
+          }
         });
     </script>
   </body>
